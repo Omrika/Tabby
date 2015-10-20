@@ -1,4 +1,3 @@
-//the open tabs url is now printing to the console
 document.getElementById('create').addEventListener('click', function(){
     var arr = [];
 
