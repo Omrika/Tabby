@@ -20,7 +20,19 @@ document.getElementById('create').addEventListener('click', function(){
 
 }); 
  
+
+document.getElementById('list').addEventListener('click', function(){
+    
+}); 
+
+
+
 //whats next..
 //create a dropdown 
 //different drop down tabs
 //should be able to add urls to specified tabs...
+
+//11/16
+//user should be able to click a button and create a list. 
+//then they should be able to add to that list specific urls
+
