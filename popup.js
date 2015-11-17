@@ -1,33 +1,54 @@
-document.getElementById('create').addEventListener('click', function(){
-    // var arr = [];
+var clicked = false;
 
-    // chrome.tabs.query({}, function(tabs){
-    //     for (var i = 0; i < tabs.length; i++){
-    //         arr[i] = tabs[i];
-    //     }
-        
-    //     for (var i = 0; i < arr.length; i++){
-    //         if (arr[i] != null) {
-    //             var div = document.createElement('div')
-    //             div.className = 'list'
-    //             div.innerHTML = "<ul><li>" + arr[i].url +"</li></ul>";
-    //             document.getElementById('content').appendChild(div);
-    //         } else {
-    //             document.write("no tabby's");
-    //         }
-    //     }
-    // })
+document.getElementById('create').addEventListener('click', function() {
+
+
+    if (clicked) {
+        return;
+    }
+    clicked = true;
+
+
     var field = document.getElementById('title');
-        if(field.style.display == 'block') {
-          field.style.display = 'none';
+    var button = document.getElementById('submit');
+    if (field.style.display == 'block' && button.style.display == 'block') {
+        field.style.display = 'none';
+        button.style.display = 'none';
+    } else {
+        field.style.display = 'block';
+        button.style.display = 'block';
+    }
+    
+
+    var arr = [];
+
+
+
+    chrome.tabs.query({}, function(tabs) {
+        for (var i = 0; i < tabs.length; i++) {
+            arr.push(tabs[i]);
         }
-        else {
-            field.style.display = 'block'
+
+
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] != null) {
+                var div = document.createElement('div')
+                div.className = 'list'
+                div.innerHTML = "<input type='checkbox' id='box'>" + arr[i].url + ">";
+                document.getElementById('content').appendChild(div);
+
+            }
         }
 
-}); 
+    })
+});
 
-
+function clearAllLists() {
+    var lists = document.getElementById('content').getElementsByClassName('list');
+    for (var i = 0; i < lists.length; i++) {
+        lists.parentElement.removeChild(lists[i]);
+    }
+}
 
 //whats next..
 //create a dropdown 
@@ -37,4 +58,3 @@ document.getElementById('create').addEventListener('click', function(){
 //11/16
 //user should be able to click a button and create a list. 
 //then they should be able to add to that list specific urls
-
