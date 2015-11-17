@@ -11,7 +11,7 @@
     },
 
     "permissions": [
-      "tabs"
+      "tabs" //need to add tab permissions so i can have access to tab urls, favIconUrl, and title etc..
 
     ]
 }
