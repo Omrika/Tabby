@@ -23,11 +23,6 @@
 <html>
   <head>
       <meta charset="utf-8">
-    <meta name="description" content="A basic template for a Chrome Extension using Twitter Bootstrap 3">
-    <meta name="author" content="Elliot Hesp">
-    
-    <title>Chrome Extension with Twitter Bootstrap 3.0</title>
-    
     <!-- Scripts -->
     <script src="js/jquery-2.0.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -41,9 +36,18 @@
   
     <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Brand</a>
+        <a class="navbar-brand" href="#">Tabby</a>
+        <button type="button" class="btn btn-default navbar-brand" id="create">Create ME!</button>
       </div>
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
+    </nav>
+   
+    <input type = "text" class = "form-control" id = "title" placeholder = "group title" style="display: none;">
+   
+    <div class="wrapper">
+      <div id="content">
+      </div>
+    </div>
+      <!-- <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
           <li class="active">
             <a href="#">Link</a>
@@ -77,40 +81,11 @@
             </ul>
           </li>
         </ul>
-      </div>
-    </nav>
-    
-    <section>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    
+      </div> -->
+ <!--    </nav> -->
+
+  <footer>
+    <script src="popup.js"></script>
+  </footer>  
   </body>
 </html>
