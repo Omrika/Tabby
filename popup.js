@@ -61,17 +61,28 @@ document.getElementById( 'submit' ).addEventListener( 'click', function(){
     if ( check_bool.checked || field_data != undefined ) { // or if field has text in it.
         panel_heading.innerHTML = field_data.value; //field data value is now the name of the group
         // panel_body.innerHTML = "<ul><li>" + check_bool.name + "</li></ul>";
-        panel_body.innerHTML = "<ul><li>" + check_bool.name + "</li></ul>";
+        var selected = []
+        
+        var u = $(".list").children("input:checked").each(function(){ selected.push(($(this).attr('name')))})
+        // for(var i = 0; i < u.length; i++){(panel_body.innerHTML = "<ul><li>" + (u[i].name) + "</li></ul>")}
+        panel_body.innerHTML = selected;
+
         wrapper.style.display = 'none'; //hide 'create group' info
         panel.style.display = 'block'; //show the list of groups
     }
+        debugger
     
     //test^^
 
 });
 
 
-
+//to do:
+//only shows first checkbox clicked if i click more than one checkbox. so figure out a way
+//to add all checked checkboxes to group list
+//only shows list of urls if two pages are open
+//make url list in groups links so user can click on them
+//
 
 
 
@@ -87,9 +98,4 @@ document.getElementById( 'submit' ).addEventListener( 'click', function(){
 //     for (var i = 0; i < lists.length; i++) {
 //         lists.parentElement.removeChild(lists[i]);
 //     }
-// }
-
-//whats next..
-//create a dropdown 
-//different drop down tabs
-//should be able to add urls to specified tabs...
+// }    
