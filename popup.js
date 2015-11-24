@@ -3,16 +3,30 @@ wrapper = document.getElementById( 'wrapper' )
 panel = document.getElementById( 'accordion' )
 panel_heading = document.getElementById( 'collapsible' )
 panel_body = document.getElementById( 'accordionOne' )
-var clicked = false;
+clicked = false
 
+window.onload = function(){
+    panel.style.display = 'block';
+    // panel_heading.innerHTML = 'testing';
+    // panel_body.innerHTML = 'also testing';
+      // panel_heading.innerHTML = localStorage['field'];
+        // panel_body.innerHTML = localStorage['selected'];
+
+    if (localStorage != undefined){
+        for (var i = 0; i < localStorage.length; i++) {
+            panel_heading.innerHTML = localStorage.key(i)
+            panel_body.innerHTML = localStorage.getItem(panel_heading.innerHTML)
+        };
+    }
+}
 
 document.getElementById( 'create' ).addEventListener( 'click', function() {
 //click event on the create button.
-
-    if (clicked) {
+    if (clicked){
         return;
     }
-    clicked = true;
+    clicked = true
+ 
     //click is originally false because i didn't click. But after i add event listener and i click
     //it becomes true. Then i can no longer click. This prevents urls to be repeatedly added to the list
     //when the button is clicked. So i disabled it.
@@ -46,6 +60,7 @@ document.getElementById( 'create' ).addEventListener( 'click', function() {
     })
 });
 
+
 //when user clicks the submit button. The data in the input field and the checked off boxes
 //should be saved with localStorage
 //retrieved with localStorage and put in a drop down.
@@ -70,50 +85,20 @@ document.getElementById( 'submit' ).addEventListener( 'click', function(){
         
         var u = $(".list").children("input:checked").each(function(){ selected.push(($(this).attr('name')))})
 
-        localStorage['field'] = field_data.value;
-        localStorage['selected'] = selected;
+        localStorage[field_data.value] =  selected;
+        // localStorage[selected] = selected;
         
-        panel_heading.innerHTML = localStorage['field'];
-        panel_body.innerHTML = localStorage['selected'];
+        panel_heading.innerHTML = field_data.value;
+        panel_body.innerHTML = selected;
+
         //^ sets input in heading and body. 
         // chrome.storage.local.set({'field', field_data.value} function(){})
-
-
-
+        
         wrapper.style.display = 'none'; //hide 'create group' info
         panel.style.display = 'block'; //show the list of groups  
     }
 
 });
-
-
-
-// window.onload = function(){
-//     if (field_data.value != undefined || selected != undefined){
-//         //if both aren't undefined then i want to get the storage of data
-//         var field = field_data.value
-
-//       }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
