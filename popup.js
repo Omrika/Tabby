@@ -6,16 +6,12 @@ panel_body = document.getElementById( 'accordionOne' )
 clicked = false
 
 window.onload = function(){
-    panel.style.display = 'block';
-    // panel_heading.innerHTML = 'testing';
-    // panel_body.innerHTML = 'also testing';
-      // panel_heading.innerHTML = localStorage['field'];
-        // panel_body.innerHTML = localStorage['selected'];
+    panel.style.display = 'none';
 
     if (localStorage != undefined){
         for (var i = 0; i < localStorage.length; i++) {
-            panel_heading.innerHTML = localStorage.key(i)
-            panel_body.innerHTML = localStorage.getItem(panel_heading.innerHTML)
+            var testing = ('<div class="panel-group" id="accordion"><div class="panel panel-primary"><div class="panel-heading"><h4 class="panel-title"><a id="collapsible" data-toggle="collapse" data-parent="#accordion" href="#accordionOne">' + localStorage.key(i) + '</a></h4></div><div id="accordionOne" class="panel-collapse collapse"><div class="panel-body">' + localStorage.getItem(localStorage.key(i)) +'</div></div></div></div>')
+            $("#container").after(testing)
         };
     }
 }
