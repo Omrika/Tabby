@@ -15,8 +15,7 @@
   
     <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Tabby</a>
-        <button type="button" class="btn btn-default navbar-brand" id="create">Create Group</button>
+        <button type="button" class="btn btn-default btn-circle" id="create">Create Group</button>
       </div>
     </nav>
    
@@ -34,11 +33,12 @@
       <div class="panel panel-primary">
         <div class="panel-heading"> <!-- panel-heading -->
           <h4 class="panel-title">
-            <a id="collapsible" data-toggle="collapse" data-parent="#accordion" href="#accordionOne"> <!-- Group Title --> </a>
+            <h4 id="collapsible"> <!-- Group Title --></h4>
+            <button id="delete" class="btn-xs btn-danger btn-default pull-right">Delete</button>
           </h4>
         </div>
           <!-- panel body -->
-        <div id="accordionOne" class="panel-collapse collapse">
+        <div id="accordionOne">
           <div class="panel-body">
             <!-- list of url's added to group -->
           </div>

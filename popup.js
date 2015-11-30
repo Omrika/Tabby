@@ -6,17 +6,21 @@ panel_body = document.getElementById( 'accordionOne' )
 clicked = false
 
 window.onload = function(){
-    panel.style.display = 'none';
-
+    panel.style.display = 'none'; //removes blank panel when page loads.
     if (localStorage != undefined){
         for (var i = 0; i < localStorage.length; i++) {
-            var testing = ('<div class="panel-group" id="accordion"><div class="panel panel-primary"><div class="panel-heading"><h4 class="panel-title"><a id="collapsible" data-toggle="collapse" data-parent="#accordion" href="#accordionOne">' + localStorage.key(i) + '</a></h4></div><div id="accordionOne" class="panel-collapse collapse"><div class="panel-body">' + localStorage.getItem(localStorage.key(i)) +'</div></div></div></div>')
+            var key = localStorage.key(i)
+                url = localStorage.getItem(key)
+                value = url.link(url)
+                
+            var testing = ('<div class="panel-group" id="accordion"><div class="panel panel-primary"><div class="panel-heading"><h4 class="panel-title"><a id="collapsible">' + key + '</a><button id="delete" class="btn-xs btn-danger btn-default pull-right">Delete</button></h4></div><div id="accordionOne"><div class="panel-body">' + value +'</div></div></div></div>')
             $("#container").after(testing)
         };
-    }
+    }  
 }
 
-document.getElementById( 'create' ).addEventListener( 'click', function() {
+
+document.getElementById( 'create' ).addEventListener( 'click', function() { 
 //click event on the create button.
     if (clicked){
         return;
@@ -82,42 +86,26 @@ document.getElementById( 'submit' ).addEventListener( 'click', function(){
         var u = $(".list").children("input:checked").each(function(){ selected.push(($(this).attr('name')))})
 
         localStorage[field_data.value] =  selected;
-        // localStorage[selected] = selected;
         
         panel_heading.innerHTML = field_data.value;
         panel_body.innerHTML = selected;
 
         //^ sets input in heading and body. 
-        // chrome.storage.local.set({'field', field_data.value} function(){})
         
+        
+        panel.style.display = 'block'; //show the list of groups just created 
         wrapper.style.display = 'none'; //hide 'create group' info
-        panel.style.display = 'block'; //show the list of groups  
     }
 
 });
 
 
-
-
-//problem: im setting and geeting the field data but it overwrites it everytime i create new field data
-//and its not rendering to the page.
-
 //to do:
-//only shows first checkbox clicked if i click more than one checkbox. so figure out a way
-//to add all checked checkboxes to group list
-//only shows list of urls if two pages are open
-//make url list in groups links so user can click on them
-//
-
-// urls = document.querySelectorAll('#box')
-
+//add delete button -- check!
+//make delete button work 
+//change color scheme
+//set urls in each panel as a list and not one long string
+//space out list of urls
+//make each url a link so the user can go to that page. -- check!
 
 
-//if panel = document.getElementById('accordion') has a group then show it. 11/2-
-
-// function clearAllLists() {
-//     var lists = document.getElementById('content').getElementsByClassName('list');
-//     for (var i = 0; i < lists.length; i++) {
-//         lists.parentElement.removeChild(lists[i]);
-//     }
-// }    
