@@ -20,6 +20,7 @@ window.onload = function(){
 }
 
 
+
 document.getElementById( 'create' ).addEventListener( 'click', function() { 
 //click event on the create button.
     if (clicked){
