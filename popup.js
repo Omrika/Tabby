@@ -1,5 +1,3 @@
-window = window
-
 var App = {
     init: function() {
         field_data = document.getElementById( 'title' )
@@ -8,7 +6,8 @@ var App = {
         App.local_storage();
         App.create_list();
         App.submit_list();
-        App.delete_button();
+        // App.format_urls();
+        // App.delete_button();
     },
 
     local_storage: function() {
@@ -68,6 +67,21 @@ var App = {
         });
     },
 
+    // format_urls: function() {
+    //     var urls = document.querySelector('.panel-body a').innerHTML
+    //     var regex = new RegExp(',', 'g');
+    //     var str = urls.replace(regex, ' ');
+
+    //     // replace all commas with space
+    //     // want to turn each url into list items
+    //     // 
+
+    //     if (/^http/.test(urls) ) {
+
+    //     }
+
+    // },
+
     submit_list: function() {
         panel_heading = document.getElementById( 'collapsible' )
         panel_body = document.getElementById( 'accordionOne' )
@@ -77,15 +91,14 @@ var App = {
         var check_bool = document.getElementById( 'box' )
 
         //when i click submit i want to get the value of the field and check if box is checked
-        //and save both in a dropdown list. 
+        //and save both in a list. 
 
-            if ( check_bool.checked || field_data != undefined ) { // or if field has text in it.
+            if ( check_bool.checked && field_data != undefined ) { // or if field has text in it.
 
-                //field data value is now the name of the group
                 var selected = []
-
+     
                 var u = $('.list').children("input:checked").each(function(){ selected.push(($(this).attr('name')))})
-                // var list = document.getElementsByClassName('list')
+                var list = document.getElementsByClassName('list')
                 // for (var i = 0; i < list.length; i++) {
                 //     if (list[i].children.checked) {
                 //         console.log(list[i])
@@ -104,11 +117,20 @@ var App = {
                 document.getElementById( 'wrapper' ).style.display = 'none'; //hide 'create group' info
             }
         });
-    },
-
-    delete_button: function() {
-        document.getElementById('')
     }
+
+    // delete_button: function() {
+    //     var remove = document.getElementById('delete')
+    //     var att = document.getElementById('accordion')
+      
+    //     function testing () { 
+    //         // if (remove.parentElement.childNodes = remove) {  
+    //         //     remove.parentElement.parentElement.parentElement.parentElement.parentElement.removeAttribute('.panel-group')
+    //         // }
+    //     }
+        
+    //     remove.addEventListener('click', testing)
+    // }
 }
 
 window.addEventListener( 'DOMContentLoaded', App.init );
