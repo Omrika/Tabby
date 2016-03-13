@@ -1,0 +1,9 @@
+//to do:
+//add delete button -- check!
+//make delete button work 
+//change color scheme -- check!
+//set urls in each panel as a list and not one long string
+//space out list of urls -- check!
+//make each url a link so the user can go to that page. -- check!
+
+
